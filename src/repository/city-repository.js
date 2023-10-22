@@ -40,10 +40,10 @@ class CityRepository {
     }
   }
 
-  async getCity({ cityId }) {
+  async getCity(cityId ) {
     try {
-      const city = await City.findByPk({
-        cityId,
+      const city = await City.findOne({
+        where: { id: cityId }
       });
       return city;
     } catch (error) {
