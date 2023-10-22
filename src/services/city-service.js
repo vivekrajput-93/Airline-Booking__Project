@@ -1,3 +1,6 @@
+// Service Perfomrs bussiness logic on the data on passed by the controllers
+
+
 const { CityRepo } = require("../repository/index");
 
 class CityService {
