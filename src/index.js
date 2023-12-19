@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const {PORT} = require("./config/serverConfig")
 
 
+
 const setupAndStartServer = async() => {
     // creating the express object
     const app = express();
@@ -18,7 +19,7 @@ const setupAndStartServer = async() => {
 
 
 
-    app.listen(PORT, () => {
+    app.listen(PORT, async() => {
         console.log(`Server is running at ${PORT}`);
     })
 
