@@ -73,7 +73,7 @@ const update = async(req, res) => {
             data : response,
             success : true,
             message : "Successfully updated a city",
-            err : error,
+            err : {}
         })
     } catch (error) {
         console.log(error);
