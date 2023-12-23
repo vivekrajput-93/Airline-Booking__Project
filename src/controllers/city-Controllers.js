@@ -90,7 +90,7 @@ const update = async(req, res) => {
 
 const getAll = async(req, res) => {
     try {
-        const cities = await cityService.getAllcities();
+        const cities = await cityService.getAllcities(req.query);
         return res.status(200).send({
             data  : cities,
             success: true,
