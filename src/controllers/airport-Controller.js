@@ -4,7 +4,16 @@ const airportSerive = new AirportService();
 
 const create = async(req,res) => {
     try {
-        const response = await airportSerive.create(req.body);
+        const flightRequestData = {
+            flightNumber : req.body.flightNumber,
+            airplaneId : req.body.airplaneId,
+            departureAirportId : req.body.departureAirportId,
+            arrivalAirportId : req.body.arrivalAirportId,
+            arrivalTime : req.body.arrivalTime,
+            departureTime : req.body.departureTime,
+            price : req.body.price 
+        }
+        const response = await airportSerive.create(flightRequestData);
 
         return res.status(201).json({
             data : response,
@@ -23,6 +32,9 @@ const create = async(req,res) => {
         
     }
 }
+
+
+
 
 module.exports = {
     create

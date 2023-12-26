@@ -1,5 +1,5 @@
 const { AirplaneRepository, FlightRepository } = require("../repository/index");
-const { comapreTime } = require("../utils/helper");
+const { compareTime } = require("../utils/helper")
 
 
 class FlightService {
@@ -11,7 +11,7 @@ class FlightService {
 
     async createFlight(data) {
         try {
-            if(!comapreTime(data.arrivalTime, data.departureTime ))  {
+            if(!compareTime(data.arrivalTime, data.departureTime ))  {
                 throw {error : "Arrival time should not be less than departure time"}
             }
         
