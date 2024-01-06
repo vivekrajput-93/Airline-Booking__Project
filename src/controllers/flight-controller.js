@@ -1,5 +1,5 @@
 const { FlightService } = require("../services/index");
-const { SucccessCode } = require("../utils/error-code");
+const { SuccessCode } = require("../utils/error-code");
 
 
 const flightService = new FlightService();
@@ -8,7 +8,7 @@ const flightService = new FlightService();
 const create = async (req, res) => {
     try {
         const flight = await flightService.createFlight(req.body);
-        return res.status(SucccessCode.CREATED).send({
+        return res.status(SuccessCode.CREATED).send({
             data : flight,
             success : true,
             message : "Successfully created a Flight",
@@ -29,7 +29,7 @@ const create = async (req, res) => {
 const getAll = async(req,res) =>{
     try {
         const response = await flightService.getAllFlightData(req.query);
-        return res.status(SucccessCode.OK).json({
+        return res.status(SuccessCode.OK).json({
             data : response,
             success:true,
             message : "Successfully the fetched the flights",
@@ -51,22 +51,24 @@ const getAll = async(req,res) =>{
 const get = async (req, res) => {
     try {
         const response = await flightService.getFlight(req.params.id);
-        return res.status(500).json({
-            data : response,
-            success :true,
-            message : "Sucessfully fetched a single flight",
-            err : {}
-        })
+        return res.status(SuccessCode.OK).json({
+            data: response,
+            success: true,
+            err: {},
+            message: 'Successfully fetched the flight'
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            data : {},
-            success:false,
-            message : "Not able to fetch a single flight",
-            err : error
-        })
+            data: {},
+            success: false,
+            message: 'Not able to fetch the flight',
+            err: error
+        });
     }
 }
+
+
 
 module.exports = {
     create,

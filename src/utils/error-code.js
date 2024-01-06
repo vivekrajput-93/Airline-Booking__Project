@@ -10,7 +10,7 @@ const ServerError = Object.freeze({
     NOT_IMPLEMENTED : 501,
 })
 
-const SucccessCode = Object.freeze({
+const SuccessCode = Object.freeze({
     CREATED : 201,
     OK : 200
 
@@ -19,5 +19,5 @@ const SucccessCode = Object.freeze({
 module.exports = {
     ClientError,
     ServerError,
-    SucccessCode
+    SuccessCode
 }
