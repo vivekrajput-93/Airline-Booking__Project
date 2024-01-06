@@ -47,6 +47,17 @@ class FlightService {
     }
 
 
+    async updateFlight(flightId, data) {
+        try {
+            const response = await this.flightrepository.updateFlight(flightId, data);
+            return response;
+        } catch (error) {
+            console.log("somethin went wrong!");
+            throw error;
+        }
+    }
+
+
 }
 
 
